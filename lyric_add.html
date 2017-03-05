@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <title>耕书屋</title>
+  <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="layui/css/layui.css">
+  <link rel="stylesheet" href="css/home.css">
+</head>
+<body>
+	<style type="text/css">
+		body{
+			background-color: #eee;
+		}
+		.header{
+			background: #393D49;
+			height: auto;
+			border-bottom: 1px solid #404553;
+			width: 100%;
+			position: fixed;
+			z-index: 10000;
+			left: 0;
+			top: 0;
+		}		
+		.footer{
+			background: #393D49;
+			height: auto;
+			border-bottom: 1px solid #404553;
+		}
+		.main{
+			width: 80%;
+			background-color: #393D49;
+			margin: 0 auto;
+			position: relative;
+		}	
+		.home-img img{
+			width: 100%;
+		}
+	</style>
+ <div class="layui-header header">
+ 	<div class="main">
+	 	<ul class="layui-nav" lay-filter="">
+		  	<li class="layui-nav-item"><a href="index.html">首页</a></li>
+		  	<li class="layui-nav-item"><a href="index.html">歌单</a></li>
+		  	<li class="layui-nav-item"><a href="index_essay.html">文章</a></li>
+		  	<li class="layui-nav-item"><a href="index_image.html">美图</a></li>
+		  	<li class="layui-nav-item"><a href="admin.html">后台管理</a></li>
+		</ul>
+		<div class="nav-user"> 
+			<a class="unlogin" href="/user/login/"><i class="iconfont icon-touxiang"></i></a>      
+			<span>
+				<a href="login.html" class="layui-btn">登录</a>
+				<a href="/user/reg/" class="layui-btn">注册</a>
+			</span>
+		</div>
+ 	</div>
+ </div>
+<div class="container">
+ 	<div class="row">
+ 		<div class="page-header"></div>
+ 		<div class="col-md-3">
+ 			<ul class="layui-nav layui-nav-tree layui-gsw-nav">
+				<!-- 侧边导航: <ul class="layui-nav layui-nav-tree layui-nav-side"> -->
+				<li class="layui-nav-item layui-nav-itemed">
+				    <a href="javascript:;">歌词管理</a>
+				    <dl class="layui-nav-child">
+				    	<dd><a href="lyric_add.html" class="layui-this">添加</a></dd>
+				    	<dd><a href="lyric_list.html">歌词列表</a></dd>
+				    </dl>
+				</li>
+				<li class="layui-nav-item">
+				    <a href="javascript:;">文章管理</a>
+				    <dl class="layui-nav-child">
+				      <dd><a href="">移动模块</a></dd>
+				      <dd><a href="">后台模版</a></dd>
+				      <dd><a href="">电商平台</a></dd>
+				    </dl>
+				</li>
+				<li class="layui-nav-item">
+				    <a href="javascript:;">图片管理</a>
+				    <dl class="layui-nav-child">
+				      <dd><a href="">移动模块</a></dd>
+				      <dd><a href="">后台模版</a></dd>
+				      <dd><a href="">电商平台</a></dd>
+				    </dl>
+				</li>
+				<li class="layui-nav-item"><a href="">产品</a></li>
+				<li class="layui-nav-item"><a href="">大数据</a></li>
+			</ul>
+ 		</div>
+ 		<div class="col-md-9">
+ 			<div class="panel panel-default">
+				<div class="panel-body">
+					<h4>添加歌词</h4>
+					<hr>
+				    <form class="layui-form" action="">
+					  	<div class="layui-form-item">
+						    <label class="layui-form-label">标题</label>
+						    <div class="layui-input-block">
+						      	<input type="text" name="title" required  lay-verify="required" placeholder="请输入标题" autocomplete="off" class="layui-input">
+						    </div>
+					  	</div>
+					  	<div class="layui-form-item">
+						    <label class="layui-form-label">配图</label>
+						    <div class="layui-input-block">
+						      	<input type="file" name="image" class="layui-upload-file">
+						    </div>
+					  	</div>
+					  <div class="layui-form-item">
+					    <label class="layui-form-label">类型</label>
+					    <div class="layui-input-block">
+					      <input type="checkbox" name="type[write]" title="情歌">
+					      <input type="checkbox" name="type[read]" title="青春" checked>
+					      <input type="checkbox" name="type[dai]" title="中国风">
+					      <input type="checkbox" name="type[dai]" title="抒情">
+					    </div>
+					  </div>
+					  <div class="layui-form-item">
+					    <label class="layui-form-label">原创</label>
+					    <div class="layui-input-block">
+					      <input type="checkbox" name="switch" lay-skin="switch">
+					    </div>
+					  </div>
+					  <div class="layui-form-item">
+					    <label class="layui-form-label">影视</label>
+					    <div class="layui-input-block">
+					      <input type="radio" name="filmsongs" value="是" title="是">
+					      <input type="radio" name="filmsongs" value="否" title="否" checked>
+					    </div>
+					  </div>
+					  <div class="layui-form-item layui-form-text">
+					    <label class="layui-form-label">正文</label>
+					    <div class="layui-input-block">
+					    	<textarea id="add-warp" style="display: none;"></textarea>
+					    </div>
+					  </div>
+					  <div class="layui-form-item text-center">
+					    <div class="layui-input-block">
+					      <button class="layui-btn" lay-submit lay-filter="formDemo">保存</button>
+					      <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+					    </div>
+					  </div>
+					</form>
+				</div>
+			</div>
+ 		</div>
+ 	</div>
+ </div>
+ <footer>
+	<div class="layui-header footer">
+		<div class="container text-center" style="color: #666;padding: 20px 0">
+		 	<p>耕书屋</p>
+		 	<p></p>
+		 	<p>zhenyudi@163.com</p>
+		 	<p></p>
+		 	<p>京公网安备 xxxxxxxxxxxxxxxxx号京公网安备 xxxxxxxxxxxxxxxx号 京ICP备xxxxxxxxxxxxx号-1</p>
+		 	<p></p>
+		</div>
+	 </div>
+ </footer>
+<script src="layui/lay/dest/layui.all.js"></script>  
+<script src="js/jquery-1.11.3.js"></script>
+<script src="bootstrap/js/bootstrap.min.js"></script>
+<script>
+ 	layui.use('element',function(){
+		var element = layui.element();
+	
+	});	
+	layui.use('form',function(){
+		var form = layui.form();
+	
+	});	
+	layui.use('upload',function(){
+		layui.upload({
+		  url: '上传接口url'
+		  ,success: function(res){
+		    console.log(res); //上传成功返回值，必须为json格式
+		  }
+		});      
+	});
+	layui.use('layedit', function(){
+		var layedit = layui.layedit;
+  		layedit.build('add-warp'); //建立编辑器
+	
+	});
+	
+	  
+</script> 
+  
+</body>
+</html>

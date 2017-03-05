@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <title>耕书屋</title>
+  <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="layui/css/layui.css">
+  <link rel="stylesheet" href="css/home.css">
+</head>
+<body>
+	<style type="text/css">
+		body{
+			background-color: #eee;
+		}
+		.header{
+			background: #393D49;
+			height: auto;
+			border-bottom: 1px solid #404553;
+			width: 100%;
+			position: fixed;
+			z-index: 10000;
+			left: 0;
+			top: 0;
+		}		
+		.footer{
+			background: #393D49;
+			height: auto;
+			border-bottom: 1px solid #404553;
+		}
+		.main{
+			width: 80%;
+			background-color: #393D49;
+			margin: 0 auto;
+			position: relative;
+		}	
+		.home-img img{
+			width: 100%;
+		}
+	</style>
+ <div class="layui-header header">
+ 	<div class="main">
+	 	<ul class="layui-nav" lay-filter="">
+		  	<li class="layui-nav-item"><a href="index.html">首页</a></li>
+		  	<li class="layui-nav-item"><a href="index.html">歌单</a></li>
+		  	<li class="layui-nav-item"><a href="index_essay.html">文章</a></li>
+		  	<li class="layui-nav-item"><a href="index_image.html">美图</a></li>
+		  	<li class="layui-nav-item"><a href="admin.html">后台管理</a></li>
+		</ul>
+		<div class="nav-user"> 
+			<a class="unlogin" href="/user/login/"><i class="iconfont icon-touxiang"></i></a>      
+			<span>
+				<a href="login.html" class="layui-btn">登录</a>
+				<a href="/user/reg/" class="layui-btn">注册</a>
+			</span>
+		</div>
+ 	</div>
+ </div>
+	<div class="login-warp">
+		<form class="layui-form" action="">
+			<div class="layui-form-item">
+			    <label class="layui-form-label">输入框</label>
+			    <div class="layui-input-block">
+			      <input type="text" name="title" required  lay-verify="required" placeholder="请输入账号" autocomplete="off" class="layui-input">
+			    </div>
+			  </div>
+			<div class="layui-form-item">
+			    <label class="layui-form-label">密码框</label>
+			    <div class="layui-input-block">
+			      <input type="password" name="password" required lay-verify="required" placeholder="请输入密码" autocomplete="off" class="layui-input">
+			    </div>
+			</div>
+			<div class="layui-form-item">
+			    <div class="layui-input-block">
+			      <button class="layui-btn" lay-submit lay-filter="formDemo">立即登录</button>
+			      <button type="reset" class="layui-btn layui-btn-primary">注册</button>
+			    </div>
+			</div>
+		</form>
+	</div>
+ <div class="home-img">
+ 	<img src="images/login.jpg" alt="分享是一种快乐">
+ </div>
+ 
+<script src="layui/lay/dest/layui.all.js"></script>  
+<script src="js/jquery-1.11.3.js"></script>
+<script src="bootstrap/js/bootstrap.min.js"></script>
+<script>
+ 	layui.use('element', function(){
+	  var element = layui.element();
+	
+	});
+	//Demo
+	layui.use('form', function(){
+	  var form = layui.form();
+	  
+	});
+</script> 
+ 
+</body>
+</html>
